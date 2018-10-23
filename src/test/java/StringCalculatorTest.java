@@ -30,7 +30,16 @@ public class StringCalculatorTest {
         // When / Then
         assertEquals(0, stringCalculator.add(""));
     }
-    
+
+    @Test
+    public void when_calling_add_with_one_number_string_should_return_that_number() {
+        // Given
+        StringCalculator stringCalculator = new StringCalculator();
+
+        // When / Then
+        assertEquals(25, stringCalculator.add("25"));
+    }
+
     /**
      * Step 2: handle an unknown amount of numbers
      * <p>
