@@ -46,7 +46,7 @@ public class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator();
 
         // When / Then
-        assertEquals(15, stringCalculator.add("7,8"));
+        assertEquals(75, stringCalculator.add("17,58"));
     }
 
     /**
