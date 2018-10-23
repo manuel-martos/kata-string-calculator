@@ -55,6 +55,16 @@ public class StringCalculatorTest {
      * Allow the add() method to handle an unknown amount of numbers.
      */
 
+    @Test
+    public void when_calling_add_with_many_comma_separated_numbers_should_return_sum_of_them() {
+        // Given
+        StringCalculator stringCalculator = new StringCalculator();
+
+        // When / Then
+        assertEquals(87, stringCalculator.add("17,58,12"));
+        assertEquals(42, stringCalculator.add("1,2,3,5,8,13"));
+    }
+
 
     /**
      * Step 3: handle new lines between numbers
