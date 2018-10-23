@@ -40,6 +40,15 @@ public class StringCalculatorTest {
         assertEquals(25, stringCalculator.add("25"));
     }
 
+    @Test
+    public void when_calling_add_with_two_comma_separated_numbers_should_return_sum_of_both() {
+        // Given
+        StringCalculator stringCalculator = new StringCalculator();
+
+        // When / Then
+        assertEquals(15, stringCalculator.add("7,8"));
+    }
+
     /**
      * Step 2: handle an unknown amount of numbers
      * <p>
