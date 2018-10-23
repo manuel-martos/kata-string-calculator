@@ -62,9 +62,8 @@ public class StringCalculatorTest {
 
         // When / Then
         assertEquals(87, stringCalculator.add("17,58,12"));
-        assertEquals(42, stringCalculator.add("1,2,3,5,8,13"));
+        assertEquals(32, stringCalculator.add("1,2,3,5,8,13"));
     }
-
 
     /**
      * Step 3: handle new lines between numbers
