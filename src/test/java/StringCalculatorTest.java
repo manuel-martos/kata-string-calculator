@@ -23,17 +23,14 @@ public class StringCalculatorTest {
      */
 
     @Test
-    public void should_return_zero_when_calling_add_with_empty_string() {
+    public void when_calling_add_with_empty_string_should_return_zero() {
         // Given
         StringCalculator stringCalculator = new StringCalculator();
 
-        // When
-        int result = stringCalculator.add("");
-
-        // Then
-        assertEquals(0, result);
+        // When / Then
+        assertEquals(0, stringCalculator.add(""));
     }
-
+    
     /**
      * Step 2: handle an unknown amount of numbers
      * <p>
