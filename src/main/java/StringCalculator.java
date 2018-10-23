@@ -1,5 +1,7 @@
 class StringCalculator {
     int add(String numbers) {
-        return 0;
+        return !numbers.isEmpty()
+                ? Integer.valueOf(numbers)
+                : 0;
     }
 }
