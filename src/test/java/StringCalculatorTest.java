@@ -1,6 +1,8 @@
 import org.junit.Test;
 
+import static org.hamcrest.core.IsInstanceOf.instanceOf;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 // https://github.com/xpeppers/string-calculator-kata
 
@@ -117,6 +119,23 @@ public class StringCalculatorTest {
      * If there are multiple negatives, show all of them in the exception message.
      **/
 
+    @Test
+    public void when_calling_add_with_negative_numbers_should_throw_exception() {
+        // Given
+        StringCalculator stringCalculator = new StringCalculator();
+
+        // When
+        Exception exception = null;
+        try {
+            stringCalculator.add("1,2,-3,4,-2");
+        } catch (IllegalArgumentException iae) {
+            exception = iae;
+        }
+
+        // Then
+        assertThat(exception, instanceOf(IllegalArgumentException.class));
+        assertEquals("negatives not allowed: -3,-2", exception.getMessage());
+    }
 
     /**
      * Step 6: ignore big numbers
