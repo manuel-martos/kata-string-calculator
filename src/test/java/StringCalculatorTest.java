@@ -143,4 +143,13 @@ public class StringCalculatorTest {
      * Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
      */
 
+    @Test
+    public void when_calling_add_with_big_numbers_should_return_sum_ignoring_them() {
+        // Given
+        StringCalculator stringCalculator = new StringCalculator();
+
+        // When / Then
+        assertEquals(29, stringCalculator.add("17,1001,12"));
+        assertEquals(1002, stringCalculator.add("1000,2"));
+    }
 }
