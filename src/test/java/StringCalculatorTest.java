@@ -75,6 +75,14 @@ public class StringCalculatorTest {
      * * the following input is NOT ok: "1,\n" (not need to prove it - just clarifying)
      **/
 
+    @Test
+    public void when_calling_add_with_comma_or_new_line_as_separator_should_return_sum_of_them() {
+        // Given
+        StringCalculator stringCalculator = new StringCalculator();
+
+        // When / Then
+        assertEquals(6, stringCalculator.add("1\n2,3"));
+    }
 
     /**
      * Step 4: support different delimiters
