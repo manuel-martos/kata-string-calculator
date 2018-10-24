@@ -12,6 +12,8 @@ class StringCalculator {
     private static final String NEGATIVE_LIST_PREFIX1 = ": ";
     private static final String NEGATIVE_LIST_PREFIX2 = ",";
 
+    private static final int BIG_NUMBER = 1000;
+
     int add(String input) {
         List<String> separators;
         if (hasSeparatorSpecifier(input)) {
@@ -72,9 +74,9 @@ class StringCalculator {
         List<String> negatives = new ArrayList<>();
         for (String number : numbers) {
             int value = Integer.valueOf(number);
-            if (value >= 0) {
+            if (value >= 0 && value <= BIG_NUMBER) {
                 result += Integer.valueOf(number);
-            } else {
+            } else if (value < 0) {
                 negatives.add(number);
             }
         }
