@@ -8,6 +8,10 @@ class StringCalculator {
 
     private static final String SEPARATOR_SPECIFIER = "//";
 
+    private static final String NEGATIVE_EXCEPTION_MESSAGE = "negatives not allowed";
+    private static final String NEGATIVE_LIST_PREFIX1 = ": ";
+    private static final String NEGATIVE_LIST_PREFIX2 = ",";
+
     int add(String input) {
         List<String> separators;
         if (hasSeparatorSpecifier(input)) {
@@ -65,9 +69,28 @@ class StringCalculator {
 
     private int sumNumbers(List<String> numbers) {
         int result = 0;
+        List<String> negatives = new ArrayList<>();
         for (String number : numbers) {
-            result += Integer.valueOf(number);
+            int value = Integer.valueOf(number);
+            if (value >= 0) {
+                result += Integer.valueOf(number);
+            } else {
+                negatives.add(number);
+            }
+        }
+        if (!negatives.isEmpty()) {
+            throw new IllegalArgumentException(buildNegativeNumbersException(negatives));
         }
         return result;
+    }
+
+    private String buildNegativeNumbersException(List<String> numbers) {
+        String prefix = NEGATIVE_LIST_PREFIX1;
+        StringBuilder result = new StringBuilder(NEGATIVE_EXCEPTION_MESSAGE);
+        for (String number : numbers) {
+            result.append(prefix).append(number);
+            prefix = NEGATIVE_LIST_PREFIX2;
+        }
+        return result.toString();
     }
 }
