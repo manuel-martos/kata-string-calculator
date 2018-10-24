@@ -97,6 +97,14 @@ public class StringCalculatorTest {
      * The first line is optional. All existing scenarios should still be supported.
      **/
 
+    @Test
+    public void when_calling_add_with_optional_separator_should_return_sum_of_all_numbers() {
+        // Given
+        StringCalculator stringCalculator = new StringCalculator();
+
+        // When / Then
+        assertEquals(6, stringCalculator.add("//##\n1##2##3"));
+    }
 
     /**
      * Step 5: negative numbers
