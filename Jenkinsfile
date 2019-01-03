@@ -1,10 +1,4 @@
 pipeline {
-  agent {
-    docker {
-      image 'jvm'
-    }
-
-  }
   stages {
     stage('test') {
       parallel {
